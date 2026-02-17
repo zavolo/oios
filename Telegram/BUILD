@@ -18,6 +18,7 @@ load(
 )
 
 load("@build_bazel_rules_apple//apple:resources.bzl",
+    "apple_resource_group",
     "swift_intent_library",
 )
 
@@ -51,6 +52,7 @@ load(
 )
 
 load("@build_bazel_rules_apple//apple:resources.bzl",
+    "apple_resource_group",
     "swift_intent_library",
 )
 
@@ -326,9 +328,9 @@ composer_icon_folders = ["Telegram"]
 ]
 
 [
-    filegroup(
+    apple_resource_group(
         name = "{}_icon".format(name),
-        srcs = glob([
+        resources = glob([
             "Telegram-iOS/{}.icon/**/*".format(name),
         ]),
     ) for name in composer_icon_folders
