@@ -11,13 +11,13 @@
 
 #ifndef WEBRTC_IOS
 #import "platform/darwin/VideoMetalViewMac.h"
-#import "platform/darwin/GLVideoViewMac.h"
 #import "platform/darwin/VideoSampleBufferViewMac.h"
 #define UIViewContentModeScaleAspectFill kCAGravityResizeAspectFill
 #define UIViewContentModeScaleAspect kCAGravityResizeAspect
 
 #else
 #import "platform/darwin/VideoMetalView.h"
+#import "platform/darwin/GLVideoView.h"
 #import "platform/darwin/VideoSampleBufferView.h"
 #import "platform/darwin/VideoCaptureView.h"
 #import "platform/darwin/CustomExternalCapturer.h"
@@ -52,6 +52,6 @@
 
 @interface CallVideoFrameData (Initialization)
 
-- (instancetype _Nonnull)initWithBuffer:(id<CallVideoFrameBuffer> _Nonnull)buffer frame:(webrtc::VideoFrame const &)frame mirrorHorizontally:(bool)mirrorHorizontally mirrorVertically:(bool)mirrorVertically hasDeviceRelativeVideoRotation:(bool)hasDeviceRelativeVideoRotation deviceRelativeVideoRotation:(OngoingCallVideoOrientationWebrtc)deviceRelativeVideoRotation;
+- (instancetype _Nonnull)initWithBuffer:(id<CallVideoFrameBuffer> _Nonnull)buffer frame:(webrtc::VideoFrame const &)frame mirrorHorizontally:(bool)mirrorHorizontally mirrorVertically:(bool)mirrorVertically;
 
 @end
