@@ -12,14 +12,20 @@
 #import "platform/darwin/VideoCameraCapturer.h"
 
 #ifndef WEBRTC_IOS
+#if TARGET_OS_OSX
 #import "platform/darwin/VideoMetalViewMac.h"
+#endif
+#if TARGET_OS_OSX
 #import "platform/darwin/VideoSampleBufferViewMac.h"
+#endif
 #define UIViewContentModeScaleAspectFill kCAGravityResizeAspectFill
 #define UIViewContentModeScaleAspect kCAGravityResizeAspect
 
 #else
 #import "platform/darwin/VideoMetalView.h"
+#if TARGET_OS_OSX
 #import "platform/darwin/GLVideoView.h"
+#endif
 #import "platform/darwin/VideoSampleBufferView.h"
 #import "platform/darwin/VideoCaptureView.h"
 #import "platform/darwin/CustomExternalCapturer.h"
