@@ -31,6 +31,7 @@
 #import "platform/darwin/CustomExternalCapturer.h"
 
 #include "platform/darwin/iOS/tgcalls_audio_device_module_ios.h"
+#import "platform/darwin/iOS/RTCAudioSessionConfiguration.h"
 
 #endif
 
@@ -531,7 +532,7 @@ tgcalls::VideoCaptureInterfaceObject *GetVideoCaptureAssumingSameThread(tgcalls:
         auto capture = GetVideoCaptureAssumingSameThread(interface.get());
         auto source = capture->source();
         if (source) {
-            [CustomExternalCapturer passPixelBuffer:(CVPixelBufferRef)pixelBuffer rotation:videoRotation toSource:source croppingBuffer:*croppingBuffer];
+            [CustomExternalCapturer passPixelBuffer:(CVPixelBufferRef)pixelBuffer sampleBufferReference:nil rotation:videoRotation toSource:source croppingBuffer:*croppingBuffer];
         }
         CFRelease(pixelBuffer);
         isProcessingCustomSampleBuffer.value = false;
